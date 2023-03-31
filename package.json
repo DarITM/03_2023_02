@@ -1,0 +1,21 @@
+{
+  "name": "03_2023_2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+     "test": "jest"
+    },
+  "dependencies": {
+  "playwright": "^1.14.0",
+  "playwright-chromium": "^1.14.0" 
+  },
+  "devDependencies": {
+  "jest": "^27.5.1",
+  "@playwright/test": "^1.31.2"
+  
+   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

@@ -77,7 +77,7 @@ test('Happy path',async ({page}) => {
 })
 })
 
-test.describe('Group test for DropDowns Page', () => {
+test.describe('Group tests for DropDowns Page', () => {
   test.beforeEach( async ({ page }) => { 
 const dropDown = new Dropdown(page)
 await dropDown.goToDropdown()
@@ -88,8 +88,20 @@ test('Drop down 1',async ({page}) => {
   await dropDown.selectOptionFirstDropdownList('C#')
   await dropDown.selectOptionFirstDropdownList('Python')
   await dropDown.selectOptionFirstDropdownList('SQL')
+})
+test('Checkboxes',async ({page}) => {
+ const selecttheCheckbox = new Dropdown(page)
+ await selecttheCheckbox.selectCheckbox()
+ await selecttheCheckbox.unselectCheckbox()
 
 })
+test('Radiobuttons',async ({page}) =>{
+  const selecttheradiobuttons= new Dropdown(page)
+  await selecttheradiobuttons.selectRadioButtons()
+})
+
+
+
 
 })
 

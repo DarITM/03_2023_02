@@ -1,5 +1,6 @@
 import { describe,test, expect } from '@playwright/test';
 import { ContactUsPage } from '../pageobjects/ContactUsPage';
+import { Datepicker } from '../pageobjects/DatePicker';
 import { Dropdown } from '../pageobjects/Dropdown-Checkboxes-RadioButtons';
 //import { describe } from 'jest';
 
@@ -99,10 +100,20 @@ test('Radiobuttons',async ({page}) =>{
   const selecttheradiobuttons= new Dropdown(page)
   await selecttheradiobuttons.selectRadioButtons()
 })
-
-
-
-
 })
 
-
+test.describe('Date picker', ()=> {
+  test.beforeEach(async ({page}) => {
+    const datepicker = new Datepicker(page)
+    await datepicker.goToDatepickerpage()
+  
+})
+  test('check todays date',async ({page}) =>{
+    const datepicker = new Datepicker(page)
+    await datepicker.chceckIfDefaultDateIsTodayDate()
+  })
+  test.only('pick a more days from today',async ({page}) =>{
+    const datepicker = new Datepicker(page)
+    await datepicker.selectDateFromToday(5)
+  })
+})

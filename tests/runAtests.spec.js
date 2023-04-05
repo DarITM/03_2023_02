@@ -1,4 +1,5 @@
 import { describe,test, expect } from '@playwright/test';
+import { ajaxloader } from '../pageobjects/Ajax-loader';
 import { Autocomplete } from '../pageobjects/Autocomplete';
 import { ContactUsPage } from '../pageobjects/ContactUsPage';
 import { Datepicker } from '../pageobjects/DatePicker';
@@ -123,11 +124,20 @@ test.describe('Autocomplete', ()=> {
     const autocomplete = new Autocomplete(page)
     await autocomplete.goToAutocomplete()
   })
-test.only('Type in autocomplete',async ({page}) =>{
+test('Type in autocomplete',async ({page}) =>{
   const autocomplete = new Autocomplete(page)
  // await autocomplete.search.type('a')
 await autocomplete.inputaText('chi')
 await autocomplete.chooseElementsfromAutocompleteList(1)
 })
+
+  })
+  test.describe('Ajax-loader', ()=> {
+    test.only('Success wait',async ({page}) => {
+      const loader = new ajaxloader(page)
+      await loader.goToAjaxLoaderpage()
+      await loader.success()
+    })
+    
 
   })

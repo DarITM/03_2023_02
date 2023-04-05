@@ -1,4 +1,5 @@
 import { describe,test, expect } from '@playwright/test';
+import { Autocomplete } from '../pageobjects/Autocomplete';
 import { ContactUsPage } from '../pageobjects/ContactUsPage';
 import { Datepicker } from '../pageobjects/DatePicker';
 import { Dropdown } from '../pageobjects/Dropdown-Checkboxes-RadioButtons';
@@ -112,8 +113,21 @@ test.describe('Date picker', ()=> {
     const datepicker = new Datepicker(page)
     await datepicker.chceckIfDefaultDateIsTodayDate()
   })
-  test.only('pick a more days from today',async ({page}) =>{
+  test('pick a more days from today',async ({page}) =>{
     const datepicker = new Datepicker(page)
     await datepicker.selectDateFromToday(5)
   })
 })
+test.describe('Autocomplete', ()=> {
+  test.beforeEach(async ({page}) => {
+    const autocomplete = new Autocomplete(page)
+    await autocomplete.goToAutocomplete()
+  })
+test.only('Type in autocomplete',async ({page}) =>{
+  const autocomplete = new Autocomplete(page)
+ // await autocomplete.search.type('a')
+await autocomplete.inputaText('chi')
+await autocomplete.chooseElementsfromAutocompleteList(1)
+})
+
+  })
